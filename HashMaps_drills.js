@@ -4,7 +4,7 @@ const HashMap = require('./hashmap')
 
 function main() {
 
-  const lotr = new HashMap;
+  const lotr = new HashMap();
 
   lotr.MAX_LOAD_RATIO = 0.5;
   lotr.SIZE_RATIO = 3;
@@ -32,17 +32,17 @@ function main() {
 
 //___________________________________2. Ehat Does This Do _________________________ 
 
-const WhatDoesThisDo = function(){
+const WhatDoesThisDo = function () {
   let str1 = 'Hello World.';
   let str2 = 'Hello World.';
   let map1 = new HashMap();
-  map1.set(str1,10);
-  map1.set(str2,20);
+  map1.set(str1, 10);
+  map1.set(str2, 20);
   let map2 = new HashMap();
   let str3 = str1;
   let str4 = str2;
-  map2.set(str3,20);
-  map2.set(str4,10);
+  map2.set(str3, 20);
+  map2.set(str4, 10);
 
   console.log(map1.get(str1));
   console.log(map2.get(str3));
@@ -64,13 +64,13 @@ const WhatDoesThisDo = function(){
 //________________________________4. Remove duplicates ____________________________
 
 function removeDuplicates(string) {
-  
-  const library = new HashMap;
+
+  const library = new HashMap();
 
   let result = '';
 
   for (let char of string) {
-    if (!library.get(char)) { 
+    if (!library.get(char)) {
       // If the char is not in the library,
       // add the char to our result and then add it to the library
       result += char;
@@ -84,16 +84,26 @@ function removeDuplicates(string) {
 //______________________________. 5. Permutation of a palindrome __________________________
 
 function palindromePermutations(string) {
+  const library = new HashMap();
 
-  const library = new HashMap;
-
-  for (let char of string) {
-
+  for (let i = 0; i < string.length; i++) {
+    if(library.get(string[i]) === undefined) {
+      library.set(string[i], 'something')    
+    }
+    else {   
+      library.delete(string[i])
+    }
   }
- 
+
+  if(library.length > 1 ) {
+    return false
+  }
+  else {return true}
+  
 }
 
+//________________________________6 . Anagram grouping ______________________________________
 
-
-main()
-console.log(removeDuplicates('google all that you think can think of'))
+// main()
+// console.log(removeDuplicates('google all that you think can think of'))
+console.log(palindromePermutations('acecarr'))
