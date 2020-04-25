@@ -53,25 +53,47 @@ const WhatDoesThisDo = function(){
 
 
 //_________________________________3. Demonstrate understanding of HashMaps________
-
-
+// ---FIRST DRILL
+// 88 collides with 22, moved to next available slot
+//15 collides with 4, moved to next avalable slot
+//17 collides with 28, moved to next available slot
+//59 collides with 15 moved to next available slot
+//---SECOND DRILL
+//19 and 10 both collides 28, added in sequence to a linked list
+//33 collides with 15, added in sequence to a linked list
 //________________________________4. Remove duplicates ____________________________
 
 function removeDuplicates(string) {
-  const lib = new HashMap;
+  
+  const library = new HashMap;
 
   let result = '';
 
   for (let char of string) {
-    if (!lib.get(char)) { // If the char is not in the library,
+    if (!library.get(char)) { 
+      // If the char is not in the library,
       // add the char to our result and then add it to the library
       result += char;
-      lib.set(char, true);
+      library.set(char, true);
     }
   }
 
   return result;
 }
+
+//______________________________. 5. Permutation of a palindrome __________________________
+
+function palindromePermutations(string) {
+
+  const library = new HashMap;
+
+  for (let char of string) {
+
+  }
+ 
+}
+
+
 
 main()
 console.log(removeDuplicates('google all that you think can think of'))
