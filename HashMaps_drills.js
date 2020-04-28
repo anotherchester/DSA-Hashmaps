@@ -99,11 +99,28 @@ function palindromePermutations(string) {
     return false
   }
   else {return true}
-  
 }
 
 //________________________________6 . Anagram grouping ______________________________________
+const sort = word =>
+  word
+    .split("")
+    .sort()
+    .join("");
+
+const anagrams = words => {
+  const groups = new Map();
+  words.forEach(word => {
+    const sorted = sort(word);
+    const group = groups.get(sorted) || [];
+    groups.set(sorted, [...group, word]);
+  });
+  return Array.from(groups.values());
+};
+
+console.log(anagrams(["east", "cars", "acre", "arcs", "teas", "eats", "race"]));
+
 
 // main()
 // console.log(removeDuplicates('google all that you think can think of'))
-console.log(palindromePermutations('acecarr'))
+// console.log(palindromePermutations('acecarr'))
